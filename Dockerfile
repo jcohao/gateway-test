@@ -25,10 +25,10 @@ RUN go build -o app .
 WORKDIR /dist
 
 # 将二进制文件从 /build 目录复制到这里
-RUN cp /build/app . && cp /build/config .
+RUN cp /build/app . && cp /build/config/config.ini .
 
 # 声明服务端口
 EXPOSE 8080
 
 # 启动容器时运行的命令
-CMD ["/dist/app", "/config/config.ini"]
+CMD ["/dist/app", "/dist/config.ini"]
